@@ -9,11 +9,20 @@ namespace Supermarket.Tests
     [Binding]
     public sealed class SpecialOffersSteps
     {
+        public Basket testBasket;
 
         [Given(@"I buy (.*) apples at £(.*) pound each")]
-        public void GivenIBuyApplesAtPoundEach(int p0, int p1)
+        public void GivenIBuyApplesAtPoundEach(int numberOfApples, decimal pricePerApple)
         {
-            ScenarioContext.Current.Pending();
+            // create the basket
+            testBasket = new Basket();
+
+            // for loop has three parts
+            // for (initialisation; test; increment) { code goes here }
+            for (var i = 0; i < numberOfApples; i++)
+            {
+                testBasket.Items.Add(new BasketItem(pricePerApple));
+            }
         }
 
         [When(@"I need to make payment")]
