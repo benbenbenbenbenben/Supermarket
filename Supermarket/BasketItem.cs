@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Supermarket
 {
-    public class Bill
+    public class BasketItem
     {
-        public List<string> Lines = new List<string>();
+        public string ItemName;
+        public decimal Price;
     }
 }

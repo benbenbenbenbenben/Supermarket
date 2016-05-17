@@ -8,5 +8,6 @@ namespace Supermarket
 {
     public class Basket
     {
+        public List<BasketItem> Items = new List<BasketItem>();
     }
 }

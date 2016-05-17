@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Supermarket
 {
-    public class Bill
+    public class Checkout
     {
-        public List<string> Lines = new List<string>();
+        public Bill ProcessBasket(Basket basket)
+        {
+            return new Bill();
+        }
     }
 }
