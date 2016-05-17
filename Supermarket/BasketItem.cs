@@ -10,5 +10,15 @@ namespace Supermarket
     {
         public string ItemName;
         public decimal Price;
+
+        public BasketItem()
+        {
+            
+        }
+
+        public BasketItem(decimal price)
+        {
+            this.Price = price;
+        }
     }
 }

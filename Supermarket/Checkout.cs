@@ -10,7 +10,14 @@ namespace Supermarket
     {
         public Bill ProcessBasket(Basket basket)
         {
-            return new Bill();
+            var bill = new Bill();
+            for (var i = 0; i < basket.Items.Count; i++)
+            {
+                // add bill line for basket item i
+                // line should look like: Book 20.99 for example
+                bill.Lines.Add(basket.Items[i].Price.ToString());
+            }
+            return bill;
         }
     }
 }
