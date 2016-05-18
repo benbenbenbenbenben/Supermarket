@@ -16,7 +16,9 @@ namespace Supermarket
             {
                 // add bill line for basket item i
                 // line should look like: Book 20.99 for example
-                bill.Lines.Add(basket.Items[i].Price.ToString());
+                var itemType = basket.Items[i].ItemName;
+                var itemPrice = basket.Items[i].Price.ToString();
+                bill.Lines.Add(itemType + " " + itemPrice);
             }
 
             bill.Lines.Add("");
