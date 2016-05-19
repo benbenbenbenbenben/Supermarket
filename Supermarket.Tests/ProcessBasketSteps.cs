@@ -21,7 +21,12 @@ namespace Supermarket.Tests
         {
             testBasket = new Basket();
 
-            var books = table.CreateSet<BasketItem>();
+            List<BasketItem> books = table.CreateSet<BasketItem>().ToList();
+
+            for (var i = 0; i < books.Count; i++)
+            {
+                books[i].ItemType = "Book";
+            }
 
             testBasket.Items.AddRange(books);
         }

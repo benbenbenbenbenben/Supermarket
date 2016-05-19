@@ -10,6 +10,7 @@ namespace Supermarket
     {
         public string ItemName;
         public decimal Price;
+        public string ItemType;
 
         public BasketItem()
         {
