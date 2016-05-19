@@ -12,8 +12,8 @@ namespace Supermarket.Tests
     {
         public Basket testBasket;
 
-        [Given(@"I buy (.*) apples at £(.*) pound each")]
-        public void GivenIBuyApplesAtPoundEach(int numberOfApples, decimal pricePerApple)
+        [Given(@"I buy (.*) apples at £(.*) each")]
+        public void GivenIBuyApplesAtEach(int numberOfApples, decimal pricePerApple)
         {
             // create the basket
             testBasket = new Basket();
@@ -27,13 +27,13 @@ namespace Supermarket.Tests
         }
 
         [Given(@"for every (.*) apples there is a discount of £(.*)")]
-        public void GivenForEveryApplesThereIsADiscountOf(int p0, Decimal p1)
+        public void GivenForEveryApplesThereIsADiscountOf(int multiple, decimal discount)
         {
             testBasket.AddDiscount(
-                (Basket basket) => basket.Items
+                basket => basket.Items
                             .Where(item => item.ItemName == "Apple")
-                            .Where((_, index) => (index + 1) % 3 == 0)
-                        , item => item.Price - 0.50M);
+                            .Where((_, index) => (index + 1) % multiple == 0)
+                        , item => item.Price - discount);
         }
 
         [When(@"I need to make payment")]
