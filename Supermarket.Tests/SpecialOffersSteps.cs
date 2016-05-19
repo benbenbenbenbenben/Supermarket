@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
 
 namespace Supermarket.Tests
@@ -21,20 +22,30 @@ namespace Supermarket.Tests
             // for (initialisation; test; increment) { code goes here }
             for (var i = 0; i < numberOfApples; i++)
             {
-                testBasket.Items.Add(new BasketItem(pricePerApple));
+                testBasket.Items.Add(new BasketItem(pricePerApple) { ItemName = "Apple" });
             }
+        }
+
+        [Given(@"for every (.*) apples there is a discount of £(.*)")]
+        public void GivenForEveryApplesThereIsADiscountOf(int p0, Decimal p1)
+        {
+            testBasket.AddDiscount(
+                (Basket basket) => basket.Items
+                            .Where(item => item.ItemName == "Apple")
+                            .Where((_, index) => (index + 1) % 3 == 0)
+                        , item => item.Price - 0.50M);
         }
 
         [When(@"I need to make payment")]
         public void WhenINeedToMakePayment()
         {
-            ScenarioContext.Current.Pending();
+            // nothing to do here
         }
 
         [Then(@"the total is £(.*)")]
         public void ThenTheTotalIs(Decimal p0)
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(p0, testBasket.Total());
         }
 
     }

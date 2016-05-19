@@ -21,11 +21,11 @@ namespace Supermarket
                 bill.Lines.Add(itemType + " " + itemPrice);
             }
 
-            bill.Lines.Add("");
-            bill.Lines.Add("");
-            bill.Lines.Add("");
-            bill.Lines.Add("");
-            bill.Lines.Add("");
+            bill.Lines.Add(string.Empty);
+            bill.Lines.Add("Sub Total: " + basket.SubTotal());
+            bill.Lines.Add("Tax: " + basket.Tax());
+            bill.Lines.Add("Discount: " + basket.Discount());
+            bill.Lines.Add("Total: " + basket.Total());
 
             return bill;
         }
