@@ -39,8 +39,8 @@ namespace Supermarket.Tests
             testBill = Checkout.ProcessBasket(testBasket);
         }
 
-        [Then(@"the bill shows the following")]
-        public void ThenTheBillShowsTheFollowing(Table table)
+        [Then(@"the bill has the following:")]
+        public void ThenTheBillHasTheFollowing(Table table)
         {
             // assert the bill and table are same length
             Assert.AreEqual(table.RowCount, testBill.Lines.Count);

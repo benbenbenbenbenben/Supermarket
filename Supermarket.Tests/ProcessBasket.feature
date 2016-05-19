@@ -6,7 +6,7 @@ Scenario: Buying an item produces a bill
 	| Learning C#           | 20.99 |
 	| Automated Testing 101 | 10.00 |
 	When the basket is sent to the checkout
-	Then the bill shows the following
+	Then the bill has the following:
 	| Item Type    | Item Price |
 	| Book         | 20.99      |
 	| Book         | 10.00      |

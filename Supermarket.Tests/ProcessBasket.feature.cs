@@ -115,7 +115,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Total:",
                         "30.99"});
 #line 9
- testRunner.Then("the bill shows the following", ((string)(null)), table2, "Then ");
+ testRunner.Then("the bill has the following:", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
