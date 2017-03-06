@@ -16,19 +16,22 @@ namespace Supermarket.Tests
         public Basket testBasket;
         public Bill testBill;
 
-        [Given(@"I buy the following books")]
-        public void GivenIBuyTheFollowingBooks(Table table)
+        [Given(@"I buy the following items")]
+        public void GivenIBuyTheFollowingItems(Table table)
         {
             testBasket = new Basket();
 
-            List<BasketItem> books = table.CreateSet<BasketItem>().ToList();
+            List<BasketItem> items = table.CreateSet<BasketItem>().ToList();
 
-            for (var i = 0; i < books.Count; i++)
+            for (var i = 0; i < items.Count; i++)
             {
-                books[i].ItemType = "Book";
+                if (table.Header.Contains("Tax Percentage"))
+                {
+                    items[i].Tax = items[i].Price * decimal.Parse(table.Rows[i]["Tax Percentage"]);
+                }
             }
 
-            testBasket.Items.AddRange(books);
+            testBasket.Items.AddRange(items);
         }
 
         [When(@"the basket is sent to the checkout")]

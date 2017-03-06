@@ -78,16 +78,23 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Item Name",
-                        "Price"});
+                        "Price",
+                        "Item Type"});
             table1.AddRow(new string[] {
                         "Learning C#",
-                        "20.99"});
+                        "20.99",
+                        "Book"});
             table1.AddRow(new string[] {
                         "Automated Testing 101",
-                        "10.00"});
+                        "10.00",
+                        "Book"});
+            table1.AddRow(new string[] {
+                        "Cucumber",
+                        "15.99",
+                        "Book"});
 #line 4
- testRunner.Given("I buy the following books", ((string)(null)), table1, "Given ");
-#line 8
+ testRunner.Given("I buy the following items", ((string)(null)), table1, "Given ");
+#line 9
  testRunner.When("the basket is sent to the checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -100,11 +107,14 @@ this.ScenarioSetup(scenarioInfo);
                         "Book",
                         "10.00"});
             table2.AddRow(new string[] {
+                        "Book",
+                        "15.99"});
+            table2.AddRow(new string[] {
                         "<BLANK LINE>",
                         ""});
             table2.AddRow(new string[] {
                         "Sub Total:",
-                        "30.99"});
+                        "46.98"});
             table2.AddRow(new string[] {
                         "Tax:",
                         "0"});
@@ -113,9 +123,68 @@ this.ScenarioSetup(scenarioInfo);
                         "0"});
             table2.AddRow(new string[] {
                         "Total:",
-                        "30.99"});
-#line 9
+                        "46.98"});
+#line 10
  testRunner.Then("the bill has the following:", ((string)(null)), table2, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Buying a gizmo produces a bill where the gizmo is taxed 20%")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ProcessBasket")]
+        public virtual void BuyingAGizmoProducesABillWhereTheGizmoIsTaxed20()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Buying a gizmo produces a bill where the gizmo is taxed 20%", ((string[])(null)));
+#line 21
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Item Name",
+                        "Price",
+                        "Item Type",
+                        "Tax Percentage"});
+            table3.AddRow(new string[] {
+                        "Learning C#",
+                        "20.99",
+                        "Book",
+                        "0"});
+            table3.AddRow(new string[] {
+                        "Gizmo",
+                        "10.00",
+                        "Gizmo",
+                        "0.20"});
+#line 22
+ testRunner.Given("I buy the following items", ((string)(null)), table3, "Given ");
+#line 26
+ testRunner.When("the basket is sent to the checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Item Type",
+                        "Item Price"});
+            table4.AddRow(new string[] {
+                        "Book",
+                        "20.99"});
+            table4.AddRow(new string[] {
+                        "Gizmo",
+                        "10.00"});
+            table4.AddRow(new string[] {
+                        "<BLANK LINE>",
+                        ""});
+            table4.AddRow(new string[] {
+                        "Sub Total:",
+                        "30.99"});
+            table4.AddRow(new string[] {
+                        "Tax:",
+                        "2.00"});
+            table4.AddRow(new string[] {
+                        "Discount:",
+                        "0"});
+            table4.AddRow(new string[] {
+                        "Total:",
+                        "32.99"});
+#line 27
+ testRunner.Then("the bill has the following:", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
