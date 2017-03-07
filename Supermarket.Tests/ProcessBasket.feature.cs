@@ -153,7 +153,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Gizmo",
                         "10.00",
                         "Gizmo",
-                        "0.20"});
+                        "20"});
 #line 22
  testRunner.Given("I buy the following items", ((string)(null)), table3, "Given ");
 #line 26

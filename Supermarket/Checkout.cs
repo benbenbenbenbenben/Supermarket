@@ -9,6 +9,17 @@ namespace Supermarket
 {
     public class Checkout
     {
+        public void CheckBasket(Basket basket)
+        {
+            foreach (var item in basket.Items)
+            {
+                if (item.ItemType == "Booze")
+                {
+                    throw new Exception("Cannot process an alcoholic item without approval.");
+                }
+            }
+        }
+
         public Bill ProcessBasket(Basket basket)
         {
             var bill = new Bill();

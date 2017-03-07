@@ -63,6 +63,12 @@
       <DependentUpon>ProcessBasket.feature</DependentUpon>
     </Compile>
     <Compile Include="ProcessBasketSteps.cs" />
+    <Compile Include="ProcessBasketWithBooze.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProcessBasketWithBooze.feature</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessBasketWithBoozeSteps.cs" />
     <Compile Include="SpecialOffers.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -77,6 +83,10 @@
     <None Include="ProcessBasket.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ProcessBasket.feature.cs</LastGenOutput>
+    </None>
+    <None Include="ProcessBasketWithBooze.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ProcessBasketWithBooze.feature.cs</LastGenOutput>
     </None>
     <None Include="SpecialOffers.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

@@ -22,7 +22,7 @@ Scenario: Buying a gizmo produces a bill where the gizmo is taxed 20%
 	Given I buy the following items
     | Item Name   | Price | Item Type | Tax Percentage |
     | Learning C# | 20.99 | Book      | 0              |
-    | Gizmo       | 10.00 | Gizmo     | 0.20           |
+    | Gizmo       | 10.00 | Gizmo     | 20             |
 	When the basket is sent to the checkout
 	Then the bill has the following:
 	| Item Type    | Item Price |

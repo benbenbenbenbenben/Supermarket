@@ -27,7 +27,7 @@ namespace Supermarket.Tests
             {
                 if (table.Header.Contains("Tax Percentage"))
                 {
-                    items[i].Tax = items[i].Price * decimal.Parse(table.Rows[i]["Tax Percentage"]);
+                    items[i].Tax = (items[i].Price * decimal.Parse(table.Rows[i]["Tax Percentage"])) / 100;
                 }
             }
 
