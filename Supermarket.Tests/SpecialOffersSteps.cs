@@ -12,6 +12,12 @@ namespace Supermarket.Tests
     {
         public Basket testBasket;
 
+        /// <summary>
+        ///  something changed
+        /// </summary>
+        /// <param name="numberOfApples"></param>
+        /// <param name="pricePerApple"></param>
+
         [Given(@"I buy (.*) apples at £(.*) each")]
         public void GivenIBuyApplesAtEach(int numberOfApples, decimal pricePerApple)
         {
