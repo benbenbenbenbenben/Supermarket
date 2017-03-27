@@ -53,6 +53,5 @@ namespace Supermarket.Tests
         {
             Assert.AreEqual(p0, testBasket.Total());
         }
-
     }
 }

@@ -20,16 +20,9 @@ namespace Supermarket.Tests
             testBasket = new Basket();
             var item = new BasketItem();
             item.ItemType = "Booze";
-
-            //var otherItem = new BasketItem
-            //{
-            //    ItemType = "Booze"
-            //};
-
             testBasket.Items.Add(item);
         }
 
-        private bool redLight = false;
         [When(@"I scan the bottle")]
         public void WhenIScanTheBottle()
         {
@@ -37,18 +30,20 @@ namespace Supermarket.Tests
             try
             {
                 checkOut.CheckBasket(testBasket);
-                redLight = false;
             }
             catch (Exception e)
             {
-                redLight = true;
+                ScenarioContext.Current.Add("redlight", true);
             }
         }
 
         [Then(@"the light above the check-out should flash")]
         public void ThenTheLightAboveTheCheck_OutShouldFlash()
         {
-            Assert.IsTrue(redLight);
+            Assert.IsTrue(
+                ScenarioContext.Current.ContainsKey("redlight") 
+                && (bool)ScenarioContext.Current["redlight"]
+                );
         }
 
         [Given(@"I'm going to buy a bottle of milk")]
@@ -63,7 +58,10 @@ namespace Supermarket.Tests
         [Then(@"the light above the check-out should not flash")]
         public void ThenTheLightAboveTheCheck_OutShouldNotFlash()
         {
-            Assert.IsFalse(redLight);
+            Assert.IsFalse(
+                 ScenarioContext.Current.ContainsKey("redlight")
+                 && (bool)ScenarioContext.Current["redlight"]
+                 );
         }
 
     }
