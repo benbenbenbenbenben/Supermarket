@@ -9,7 +9,7 @@ namespace Supermarket.Tests
         [TestMethod]
         public void BitwiseAnd()
         {
-            // logical and &&
+            // bitwise and &
 
             var a = true & true;
             var b = true & false;
