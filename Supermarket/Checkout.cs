@@ -13,10 +13,41 @@ namespace Supermarket
         {
             foreach (var item in basket.Items)
             {
-                if (item.ItemType == "Booze")
+                switch (item.ItemType)
                 {
-                    throw new Exception("Cannot process an alcoholic item without approval.");
+                    case ItemTypeEnum.NonAlcoholicDrink:
+                        break;
+                    case ItemTypeEnum.AlcoholicDrink:
+                        throw new Exception("Cannot process an alcoholic item without approval.");
+                    case ItemTypeEnum.FreshFood:
+                        break;
+                    case ItemTypeEnum.FrozenFood:
+                        break;
+                    case ItemTypeEnum.Confectionary:
+                        break;
+                    case ItemTypeEnum.Book:
+                        break;
+                    case ItemTypeEnum.LotteryTicket:
+                    case ItemTypeEnum.ScratchCard:
+                        throw new Exception("Cannot process a lottery ticket or scratch card without approval.");
+                    case ItemTypeEnum.Bra:
+                        break;
+                    case ItemTypeEnum.Gizmo:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
+                    
+                    
+                    
+                    //    if (item.ItemType == ItemTypeEnum.AlcoholicDrink)
+            //    {
+            //        throw new Exception("Cannot process an alcoholic item without approval.");
+            //    }
+            //    if (item.ItemType == ItemTypeEnum.LotteryTicket || item.ItemType == ItemTypeEnum.ScratchCard)
+            //    {
+            //        throw new Exception("Cannot process a lottery ticket or scratch card without approval.");
+            //    }
             }
         }
 

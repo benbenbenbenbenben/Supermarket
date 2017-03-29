@@ -11,7 +11,7 @@ namespace Supermarket
         public string ItemName;
         public decimal Price;
         public decimal Tax;
-        public string ItemType;
+        public ItemTypeEnum ItemType;
 
         public BasketItem()
         {

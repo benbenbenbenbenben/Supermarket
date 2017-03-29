@@ -19,11 +19,11 @@ namespace Supermarket.Tests
             // create the basket
             testBasket = new Basket();
             var item = new BasketItem();
-            item.ItemType = "Booze";
+            item.ItemType = ItemTypeEnum.AlcoholicDrink;
             testBasket.Items.Add(item);
         }
 
-        [When(@"I scan the bottle")]
+        [When(@"I scan the .*")]
         public void WhenIScanTheBottle()
         {
             Checkout checkOut = new Checkout();
@@ -51,7 +51,15 @@ namespace Supermarket.Tests
         {
             testBasket = new Basket();
             var item = new BasketItem();
-            item.ItemType = "Milk";
+            item.ItemType = ItemTypeEnum.NonAlcoholicDrink;
+            testBasket.Items.Add(item);
+        }
+        [Given(@"I'm going to buy a scratchcard")]
+        public void GivenIMGoingToBuyAScratchcard()
+        {
+            testBasket = new Basket();
+            var item = new BasketItem();
+            item.ItemType = ItemTypeEnum.ScratchCard;
             testBasket.Items.Add(item);
         }
 

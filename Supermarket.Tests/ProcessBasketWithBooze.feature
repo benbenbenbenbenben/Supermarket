@@ -13,3 +13,8 @@ Scenario: Buying milk does not trigger flashing red light
 	Given I'm going to buy a bottle of milk
 	When I scan the bottle
 	Then the light above the check-out should not flash
+
+Scenario: Buying scratchcard does trigger flashing red light
+	Given I'm going to buy a scratchcard
+	When I scan the barcode
+	Then the light above the check-out should flash
